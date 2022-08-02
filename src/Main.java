@@ -3,17 +3,30 @@ import java.util.Arrays;
 public class Main {
     public static void main(String[] args) {
 
-        System.out.println("----------------- interface 'Resizeable' ---------------- ");
-        Shape [] shape1 = new Shape[3];
-        shape1[0] = new Circle("yellow", false, 5);
-        shape1[1] = new Rectangle("blue",false,10,5);
-        shape1[2] = new Square("green", false,10);
-        shape1[0].resize((int)(Math.random()*100));
-        System.out.println("Hình tròn sau khi thay đổi: " + shape1[0]);
-        shape1[1].resize((int)(Math.random()*100));
-        System.out.println("Hình chữ nhất sau khi thay đổi: " + shape1[1]);
-        shape1[2].resize((int)(Math.random()*100));
-        System.out.println("Hình vuông sau khi thay đổi: " + shape1[2]);
+        Shape [] shapes = new Shape[3];
+        for (int i = 0; i < shapes.length; i++) {
+            int random = (int) (Math.random() * 3);
+            switch (random) {
+                case 0:
+                    shapes[i] = new Rectangle((int) (Math.random() * 100) + 1, (int) (Math.random() * 100) + 1);
+                    break;
+                case 1:
+                    shapes[i] = new Square((int) (Math.random() * 100) + 1);
+                    break;
+                case 2:
+                    shapes[i] = new Circle((int) (Math.random() * 100) + 1);
+            }
+        }
+        for (Shape shape : shapes) {
+
+            System.out.println(shape.getClass().getSimpleName() + ": " + shape.getArea());
+
+            if (shape instanceof IColorable) {
+
+                ((IColorable) shape).howToColor();
+            }
+            System.out.println();
+        }
 
     }
 }

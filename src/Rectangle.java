@@ -1,4 +1,4 @@
-public class Rectangle extends Shape implements IResizeable {
+public class Rectangle extends Shape {
     private double with = 1.0;
     private double length = 1.0;
     public Rectangle(){
@@ -39,13 +39,7 @@ public class Rectangle extends Shape implements IResizeable {
 
     @Override
     public String toString() {
-        return "A Rectangle with = " + getWith() + ", length = " + getLength() +
+        return "A Rectangle with with = " + getWith() + ", length = " + getLength() +
                 ", which is a subclass of" + super.toString();
-    }
-
-    @Override
-    public void resize(double percent) {
-        this.length = this.length*(percent/100);
-        this.with = this.with*(percent/100);
     }
 }

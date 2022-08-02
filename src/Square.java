@@ -1,4 +1,4 @@
-public class Square extends Rectangle implements IResizeable {
+public class Square extends Rectangle implements IColorable {
     private double side = 1.0;
     public Square() {
     }
@@ -22,13 +22,9 @@ public class Square extends Rectangle implements IResizeable {
         setLength(side);
 
     }
-    @Override
-    public void resize(double percent){
-        this.side = this.side*(percent/100);
-    }
 
     @Override
-    public String toString() {
-        return " A Square side: " + side ;
+    public void howToColor() {
+        System.out.println("Color all four sides");
     }
 }

@@ -1,4 +1,4 @@
-public class Shape implements IResizeable {
+public abstract class Shape {
     private String color = "green";
     private boolean filled = true;
     public Shape(){
@@ -32,8 +32,6 @@ public class Shape implements IResizeable {
                 + " and " + (isFilled()? "filled" : "not filled");
     }
 
-    @Override
-    public void resize(double percent) {
 
-    }
+    public abstract double getArea();
 }
